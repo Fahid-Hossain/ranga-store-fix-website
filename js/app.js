@@ -8,20 +8,38 @@ const loadProducts = () => {
 // show all product in UI 
 const showProducts = (products) => {
 products.forEach(product =>{
-      const image = product.images;
+      // const image = product.images;
       const div = document.createElement("div");
       div.classList.add("product");
-      div.innerHTML = `<div class="single-product">
-        <div>
-      <img class="product-image" src=${product.image}></img>
-        </div>
-        <h3>${product.title}</h3>
-        <p>Category: ${product.category}</p>
-        <h4>Rating-count: <b> ${product.rating.count}</b></h4>
-        <h4>Ratings: <b> ${product.rating.rate}*</b></h4>
-        <h2>Price: $ ${product.price}</h2>
-        <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-        <button id="details-btn" class="btn btn-danger">Details</button></div>
+      div.innerHTML = `
+      <div class="single-product">
+        <div class="w-100 h-50">
+          <div class="card-group">
+              <div class="card">
+                  <div class="col">
+                      <div class="card">
+                        <img src="${product.image}" class="product-image m-auto mt-2" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">${product.title.slice(0,35)}</h5>
+                          <p class="card-text">Category: ${product.category}</p>
+                          <span>Rating-count: <b> ${product.rating.count}</b></span>
+                          <p>Ratings: <b> ${product.rating.rate}*</b></p>
+                          <h5>Price: $ ${product.price}</h5> 
+                        </div>
+
+                         <div class="card-footer">
+            
+                            <button  onclick="addToCart(${product.id},${product.price})" type="button" class="btn btn-outline-success" id="addToCart-btn">Add to cart</button>
+
+                            <button type="button" class="btn btn-outline-danger" id="details-btn">Details</button>
+                         </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+        
+      </div>
         `;
       document.getElementById("all-products").appendChild(div);
   });
