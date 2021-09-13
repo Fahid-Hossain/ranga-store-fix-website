@@ -15,7 +15,7 @@ products.forEach(product =>{
       <div class="single-product">
         <div class="w-100 h-50">
           <div class="card-group">
-              <div class="card">
+              
                   <div class="col">
                       <div class="card">
                         <img src="${product.image}" class="product-image m-auto mt-2" alt="...">
@@ -34,7 +34,7 @@ products.forEach(product =>{
                             <button type="button" class="btn btn-outline-danger" id="details-btn">Details</button>
                          </div>
                       </div>
-                  </div>
+                  
               </div>
           </div>
 
